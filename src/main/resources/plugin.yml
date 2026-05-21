@@ -1,0 +1,14 @@
+name: VanillaEnchantGuard
+version: 1.0.0
+main: dev.veg.VanillaEnchantGuard
+api-version: '1.20'
+authors: [NaxoStudios]
+
+commands:
+  veg:
+    description: Main command
+    permission: veg.admin
+
+permissions:
+  veg.admin:
+    default: op

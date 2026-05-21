@@ -1,0 +1,14 @@
+dev\veg\manager\StatsManager.class
+dev\veg\api\VEGApi.class
+dev\veg\scanner\PlayerScanner$1.class
+dev\veg\utils\EnchantUtil.class
+dev\veg\commands\VEGCommand.class
+dev\veg\scanner\ScanManager.class
+dev\veg\scanner\PlayerScanner.class
+dev\veg\listeners\InventoryListener.class
+dev\veg\utils\DiscordWebhook.class
+dev\veg\manager\MenuManager.class
+dev\veg\listeners\AdminGUIListener$1.class
+dev\veg\gui\AdminGUI.class
+dev\veg\listeners\AdminGUIListener.class
+dev\veg\VanillaEnchantGuard.class

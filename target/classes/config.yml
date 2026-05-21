@@ -1,0 +1,95 @@
+#############################################
+#           VANILLA ENCHANT GUARD           #
+#             VERSION: 1.0.0                #
+#                                           #
+#           github.com/DevAdvvy             #
+#############################################
+
+#############################################
+#               STRICT MODE                 #
+# Prevents bypassed or unsafe enchantments. #
+#############################################
+strict-mode: true
+
+#############################################
+#              AUTOMATIC SCANNER            #
+#############################################
+scanner:
+
+  # Enable automatic inventory scanning.
+  enabled: true
+
+  # Scan interval in seconds.
+  interval-seconds: 60
+
+  # Scan player EnderChest contents.
+  scan-enderchest: true
+
+  # Scan ShulkerBox contents.
+  scan-shulkers: true
+
+#############################################
+#              DISCORD WEBHOOK              #
+#############################################
+discord:
+
+  # Enable Discord logging.
+  enabled: false
+
+  # Your Discord webhook URL.
+  webhook-url: ""
+
+#############################################
+#              IGNORE ENCHANTS              #
+#############################################
+ignore-enchants:
+
+  # Exact enchant names to ignore.
+  - "minecraft:sharpness"
+  - "sharpness"
+
+############################################################
+#                    ILLEGAL BLOCKS                        #
+############################################################
+illegal-blocks:
+  enabled: true
+  blocks:
+
+    - "BEDROCK"
+    - "BARRIER"
+    - "COMMAND_BLOCK"
+    - "CHAIN_COMMAND_BLOCK"
+    - "REPEATING_COMMAND_BLOCK"
+    - "STRUCTURE_BLOCK"
+    - "STRUCTURE_VOID"
+    - "JIGSAW"
+    - "DEBUG_STICK"
+
+#############################################
+#               REGEX IGNORE                #
+#############################################
+regex-ignore:
+
+  # Ignore enchantments matching regex.
+  - ".*custom.*"
+
+#############################################
+#              ACTION SYSTEM                #
+#############################################
+actions:
+
+  illegal-enchant:
+
+    # Execute console commands.
+    - "console:kick %player% Illegal enchant detected"
+    # Send message to player.
+    - "message:&cIllegal enchant removed!"
+
+##############################################
+#                  MESSAGES                  #
+##############################################
+messages:
+  prefix: "<gradient:#00ff99:#00ffff>[VEG]</gradient>"
+  main-command: "<gradient:#00ff99:#00ffff>VanillaEnchantGuard</gradient>"
+  illegal-enchant: "<red>Illegal enchant detected."
+  illegal-shulker-enchant: "<red>Illegal enchant inside shulker."

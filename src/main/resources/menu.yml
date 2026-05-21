@@ -1,0 +1,106 @@
+############################################################
+#                                                          #
+#                VanillaEnchantGuard GUI                   #
+#                                                          #
+#                     Made by Advvy                        #
+#                                                          #
+############################################################
+
+title: "<gradient:#00ff99:#00ffff>VanillaEnchantGuard</gradient>"
+
+size: 54
+
+#
+# FILLER SETTINGS
+#
+
+filler:
+  enabled: true
+  material: BLACK_STAINED_GLASS_PANE
+  name: " "
+
+#
+# GUI ITEMS
+#
+items:
+  scanner-status:
+    material: HOPPER
+    slot: 10
+    name: "<green>Scanner Status"
+    lore:
+      - ""
+      - "<gray>Automatic inventory scanner."
+      - ""
+      - "<white>Enabled: <green>%scanner_enabled%"
+      - "<white>Interval: <yellow>%scanner_interval%s"
+      - ""
+      - "<yellow>Click to toggle."
+
+  enderchest-scan:
+    material: ENDER_CHEST
+    slot: 12
+    name: "<aqua>Scan EnderChests"
+    lore:
+      - ""
+      - "<gray>Scan all online player"
+      - "<gray>enderchest inventories."
+      - ""
+      - "<yellow>Click to execute."
+
+  shulker-scan:
+    material: SHULKER_BOX
+    slot: 14
+    name: "<light_purple>Scan Shulkers"
+    lore:
+      - ""
+      - "<gray>Scan nested shulker"
+      - "<gray>contents automatically."
+      - ""
+      - "<yellow>Click to execute."
+
+  strict-mode:
+    material: NAME_TAG
+    slot: 16
+    name: "<red>Strict Mode"
+    lore:
+      - ""
+      - "<gray>Prevent unsafe enchantments."
+      - ""
+      - "<white>Enabled: %strict_mode%"
+      - ""
+      - "<yellow>Click to toggle."
+
+  statistics:
+    material: WRITABLE_BOOK
+    slot: 31
+    name: "<gold>Statistics"
+    lore:
+      - ""
+      - "<white>Illegal Corrected: <red>%illegal_corrected%"
+      - "<white>Players Supervised: <green>%players_supervised%"
+      - "<white>Shulkers Scanned: <light_purple>%shulkers_scanned%"
+      - "<white>EnderChests Scanned: <aqua>%enderchests_scanned%"
+
+  reload-config:
+    material: BOOK
+    slot: 49
+    name: "<yellow>Reload Config"
+    lore:
+      - ""
+      - "<gray>Reload plugin configuration."
+      - ""
+      - "<yellow>Click to reload."
+
+  sanitize-all:
+    material: LAVA_BUCKET
+    slot: 53
+    name: "<red>Sanitize All"
+    lore:
+      - ""
+      - "<gray>Fix all illegal enchantments"
+      - "<gray>from online players."
+      - ""
+      - "<red>WARNING:"
+      - "<gray>This affects every player online."
+      - ""
+      - "<yellow>Click to execute."
