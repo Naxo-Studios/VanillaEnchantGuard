@@ -41,6 +41,33 @@ public class ScanManager {
 
                     item.setAmount(0);
 
+                    String title = VanillaEnchantGuard.getInstance()
+                            .getConfig()
+                            .getString(
+                                    "discord.embeds.illegal-block.title"
+                            );
+
+                    String description = VanillaEnchantGuard.getInstance()
+                            .getConfig()
+                            .getString(
+                                    "discord.embeds.illegal-block.description"
+                            )
+
+                            .replace("%player%", player.getName())
+                            .replace("%block%", type.name());
+
+                    int color = VanillaEnchantGuard.getInstance()
+                            .getConfig()
+                            .getInt(
+                                    "discord.embeds.illegal-block.color"
+                            );
+
+                    DiscordWebhook.sendEmbed(
+                            title,
+                            description,
+                            color
+                    );
+
                     player.sendMessage(
                             miniMessage.deserialize(
                                     "<red>Illegal block removed: <white>" + type.name()
@@ -65,32 +92,57 @@ public class ScanManager {
                         miniMessage.deserialize(message)
                 );
 
-                DiscordWebhook.send(player.getName() + " has illegal enchants.");
-            }
+                String title = VanillaEnchantGuard.getInstance()
+                        .getConfig()
+                        .getString(
+                                "discord.embeds.illegal-enchant.title"
+                        );
 
-            if (item.hasItemMeta() && item.getItemMeta() instanceof BlockStateMeta meta) {
+                String description = VanillaEnchantGuard.getInstance()
+                        .getConfig()
+                        .getString(
+                                "discord.embeds.illegal-enchant.description"
+                        )
 
-                if (meta.getBlockState() instanceof ShulkerBox shulker) {
+                        .replace("%player%", player.getName())
+                        .replace("%item%", item.getType().name());
 
-                    for (ItemStack inside : shulker.getInventory().getContents()) {
+                int color = VanillaEnchantGuard.getInstance()
+                        .getConfig()
+                        .getInt(
+                                "discord.embeds.illegal-enchant.color"
+                        );
 
-                        if (inside == null) continue;
+                DiscordWebhook.sendEmbed(
+                        title,
+                        description,
+                        color
+                );
 
-                        if (EnchantUtil.isIllegal(inside)) {
+                if (item.hasItemMeta() && item.getItemMeta() instanceof BlockStateMeta meta) {
 
-                            EnchantUtil.sanitize(inside);
-                            StatsManager.addIllegalCorrected();
+                    if (meta.getBlockState() instanceof ShulkerBox shulker) {
 
-                            String shulkerMessage = VanillaEnchantGuard.getInstance()
-                                    .getConfig()
-                                    .getString(
-                                            "messages.illegal-shulker-enchant",
-                                            "<red>Illegal enchant inside shulker."
-                                    );
+                        for (ItemStack inside : shulker.getInventory().getContents()) {
 
-                            player.sendMessage(
-                                    miniMessage.deserialize(shulkerMessage)
-                            );
+                            if (inside == null) continue;
+
+                            if (EnchantUtil.isIllegal(inside)) {
+
+                                EnchantUtil.sanitize(inside);
+                                StatsManager.addIllegalCorrected();
+
+                                String shulkerMessage = VanillaEnchantGuard.getInstance()
+                                        .getConfig()
+                                        .getString(
+                                                "messages.illegal-shulker-enchant",
+                                                "<red>Illegal enchant inside shulker."
+                                        );
+
+                                player.sendMessage(
+                                        miniMessage.deserialize(shulkerMessage)
+                                );
+                            }
                         }
                     }
                 }
