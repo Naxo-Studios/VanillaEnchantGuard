@@ -39,6 +39,24 @@ discord:
   # Your Discord webhook URL.
   webhook-url: ""
 
+  # MESSAGE VEG DETECTION WEBHOOK
+  messages:
+
+  embeds:
+    illegal-enchant:
+      title: "⚠ | Illegal Enchant Detected"
+      description: |
+        **Player:** %player%
+        **Item:** %item%
+        **Action:** Illegal enchant corrected.
+      color: 16711680
+    illegal-block:
+      title: "🚫 | Illegal Block Removed"
+      description: |
+        **Player:** %player%
+        **Block:** %block%
+      color: 16753920
+
 #############################################
 #              IGNORE ENCHANTS              #
 #############################################
